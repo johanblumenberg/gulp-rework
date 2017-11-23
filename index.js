@@ -25,6 +25,7 @@ module.exports = function () {
 
 		try {
 			var ret = rework(file.contents.toString(), {source: file.path});
+                        ret.sourcemap(file.sourceMap);
 			plugins.forEach(ret.use.bind(ret));
 
 			if (file.sourceMap) {
